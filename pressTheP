@@ -2,7 +2,7 @@ import java.util.*;
 
 public class pressTheP {
   
- public static void main(String[] args)
+ public static void run()
  {
 Scanner input = new Scanner(System.in);
   System.out.println("hello there~ looking for a meaningless task?");
