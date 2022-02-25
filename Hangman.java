@@ -1,6 +1,6 @@
 import java.util.*;
 public class Hangman {
-    public static void main(String[] args){
+    public static void run(){
         //System.out.println("Welcome to Three-Letter Hangman! This troll game has only three letter words so if you reach hangman, you're a disgrace!");
         System.out.println("Welcome to Hangman! The word bank includes various words, ranging from music, to books, to nature. Good luck!");
 
