@@ -7,13 +7,17 @@ public class main {
  Scanner pencil = new Scanner(System.in);
   System.out.println("hey there you procrastinator, you lazy human--what would you like to do to evade productivity?");
   while(true){
-  System.out.println("(1)Hangman : word wrong --> neck gone \n(2) pressTheP : press the 'p' and nothing else!");
+  System.out.println("(1)Hangman : word wrong --> neck gone \n(2) pressTheP : press the 'p' and nothing else!\n(3) CardWar : we take no prisoners!\n (4) HighLow : guess strategically & hope... ;)");
   int input = pencil.nextInt();
   pencil.nextLine();
   if(input==1)
   	Hangman.run();
 if(input==2)
 	pressTheP.run();
+if(input==3)
+	CardWar.run();
+if(input==4)
+	HighLow.run();
 System.out.println("(1)quit or (2) play again?");
 input = pencil.nextInt();
 pencil.nextLine();
@@ -29,6 +33,14 @@ if(input==1)
  public static void Hangman()
  {
  	Hangman();
+ }
+ public static void HighLow()
+ {
+ 	HighLow();
+ }
+ public static void CardWar()
+ {
+ 	CardWar();
  }
 
 }
