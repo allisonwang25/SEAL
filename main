@@ -5,9 +5,9 @@ public class main {
  public static void main(String[] args)
  {
  Scanner pencil = new Scanner(System.in);
-  System.out.println("hey there you procrastinator, you lazy human--what would you like to do to evade productivity?");
+  System.out.println("hey there you procrastinator, you lazy human, you greasy sloth--what would you like to do to evade productivity?");
   while(true){
-  System.out.println("(1)Hangman : word wrong --> neck gone \n(2) pressTheP : press the 'p' and nothing else!\n(3) CardWar : we take no prisoners!\n (4) HighLow : guess strategically & hope... ;)");
+  System.out.println("(1)Hangman : word wrong --> neck gone \n(2) pressTheP : press the 'p' and nothing else!\n(3) CardWar : we take no prisoners!\n (4) HighLow : guess strategically & hope... ;)\n (5) ticTacToe : X's & O's");
   int input = pencil.nextInt();
   pencil.nextLine();
   if(input==1)
@@ -18,6 +18,8 @@ if(input==3)
 	CardWar.run();
 if(input==4)
 	HighLow.run();
+if(input==5)
+	ticTacToe.run();
 System.out.println("(1)quit or (2) play again?");
 input = pencil.nextInt();
 pencil.nextLine();
@@ -41,6 +43,10 @@ if(input==1)
  public static void CardWar()
  {
  	CardWar();
+ }
+ public static void ticTacToe()
+ {
+ 	ticTacToe();
  }
 
 }
