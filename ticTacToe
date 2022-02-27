@@ -72,7 +72,7 @@ public class ticTacToe {
   	System.out.println("THE WINNER IS PLAYER ONE!!!");
 	  break;
   }
-  if(sq4.equals("O") && sq6.equals("O") && sq6.equals("O"))
+  if(sq4.equals("O") && sq5.equals("O") && sq6.equals("O"))
   {
   	System.out.println("THE WINNER IS PLAYER ONE!");
 	  break;
@@ -155,7 +155,7 @@ if(sq7.equals("O") && sq8.equals("O") && sq9.equals("O"))
   	System.out.println("THE WINNER IS PLAYER TWO!!!");
 	  break;
   }
-  else if(sq4.equals("X") && sq6.equals("X") && sq6.equals("X"))
+  else if(sq4.equals("X") && sq5.equals("X") && sq6.equals("X"))
   {
   	System.out.println("THE WINNER IS PLAYER TWO!");
 	  break;
