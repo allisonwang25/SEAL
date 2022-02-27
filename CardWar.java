@@ -123,7 +123,7 @@ public class CardWar
   }
   
   
-  public static void main (String [] args)
+  public static void run ()
   {
     boolean cont = true;
     PlayerWar activeplayer = new PlayerWar ();
