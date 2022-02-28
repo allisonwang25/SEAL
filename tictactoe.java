@@ -69,7 +69,7 @@ import java.util.*;
         System.out.println("| " + tttboard[6] + " | " + tttboard[7] + " | " + tttboard[8] + " |");
         System.out.println("|---|---|---|");
     }
-    public static void main(String[] args)
+    public static void run()
     {
         Scanner pencil = new Scanner(System.in);
         tttboard = new String[9];
