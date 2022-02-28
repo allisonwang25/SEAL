@@ -22,7 +22,8 @@ public class main {
                                "CARD GAMES:\n" +
                                "(10) Slap Jack : slap that jackussy... \n" +
                                "(11) CardWar : we take no prisoners!\n" +
-                               "(12) Black Jack : casino casinooo don't get addicted and don't count cards aaaa");
+                               "(12) Black Jack : casino casinooo don't get addicted and don't count cards aaaa \n\n" + 
+                               "(13) It's a surprise ;) : oooooo get ready for jumpscare :D");
             int input = pencil.nextInt();
             pencil.nextLine();
             if(input==1)
