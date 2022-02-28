@@ -34,7 +34,7 @@ public class MysteryNumber
           System.out.println("You ran out of tries,the mystery number was " + num);
         }
     }
-    public static void main(String[]args)
+    public static void run()
     {
         guessTheNumber();
     }
