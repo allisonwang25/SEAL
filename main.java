@@ -50,6 +50,8 @@ public class main {
                 CardWar.run();
             else if(input==12)
                 blackJack.run();
+            else if(input==13)
+                RandomString.run();
             System.out.println("(1)quit or (2) play again?");
             input = pencil.nextInt();
             pencil.nextLine();
