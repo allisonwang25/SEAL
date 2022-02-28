@@ -2,7 +2,7 @@ package Test;
 import java.util.*;
 
 public class typingTest{
-    public static void main(String args[]) {
+    public static void run() {
         double nToSecs = 0.000000001;
         long now;
         long timeDiff;
