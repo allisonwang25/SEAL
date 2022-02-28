@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class checkers {
-    public static void main(String[] args){
+    public static void run(){
         //setting up the board
         piece[][] board = new piece[8][8];
         for(int i = 0; i < 8; i++){
