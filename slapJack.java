@@ -2,7 +2,7 @@ package slapJack;
 
 import java.util.*;
 public class slapJack {
-    public static void main(String[] args){
+    public static void run(){
         boolean play = true;
         while(play) {
             Scanner input = new Scanner(System.in);
