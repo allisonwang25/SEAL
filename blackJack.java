@@ -1,6 +1,6 @@
 import java.util.*;
 public class blackJack{
-    public static void main(String[] args){
+    public static void run(){
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to Allison's Blackjack Table! What's your name?");
         String name = in.nextLine();
