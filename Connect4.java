@@ -1,4 +1,173 @@
-import java.util.*;
+
+import java.util.Scanner;
+public class Connect4 {
+ public static void run(){
+  boolean cont = true;
+  String marker = "_";
+  int count = 0;
+  Scanner bub = new Scanner(System.in);
+  String[][] board = new String[6][7];
+
+  //actual game
+  int player = 0;
+  int c = 0;
+  int column = 0;
+  while(cont){
+   //filling in empty board
+   for(int i = 0; i < 6; i++){
+    for(int j = 0; j < 7; j++){
+     board[i][j] = "_";
+    }
+   }
+
+   cont = false;
+   boolean win = false;
+   boolean valid = false;
+   while(!win) {
+    print(board);
+    valid = false;
+
+    if (count % 2 == 0) {
+     player = 1;
+     marker = "X";
+    }
+    else {
+     player = 2;
+     marker = "O";
+    }
+
+    while (!valid) { //doesn't move on until the player has chosen a valid move
+     System.out.println("Player " + player + ", choose a column!");
+     c = bub.nextInt();
+     bub.nextLine();
+     column = c - 1; //user inputs row starting with one
+     if (board[0][column] != ("_")) //checks if there is space at the top
+      System.out.println("Column " + c + " is full! Choose again!");
+     else
+      valid = true;
+    }
+    count++;
+
+    for (int i = 0; i < 6; i++) {
+     if (board[5 - i][column].equals("_")) {
+      board[5 - i][column] = marker;
+      board[5 - i][column] = marker;
+      i = 6;
+     }
+    }
+
+    //checking horizontal
+    for (int j = 0; j < 6; j++) {
+     for(int k = 0; k < 4; k++) {
+      if (board[j][k].equals(marker) && board[j][k + 1].equals(marker) && board[j][k + 2].equals(marker) && board[j][k + 3].equals(marker)){
+       print(board);
+       System.out.println("Player " + player + " wins!");
+       win = true;
+      }
+
+     }
+    }
+    //checking vertical
+    for(int j = 0; j < 7; j++){
+     for(int k = 0; k < 3; k++){
+      if (board[k][j].equals(marker) && board[k + 1][j].equals(marker) && board[k + 2][j].equals(marker) && board[k + 3][j].equals(marker)){
+       print(board);
+       System.out.println("Player " + player + " wins!");
+       win = true;
+      }
+     }
+    }
+    //checking diagonal
+    // going to up and to the left
+    for(int i = 0; i < 6; i++){
+     for(int j = 0; j < 7; j++){
+      if(board[i][j].equals(marker) && j - 1 > 0 && i - 1 > 0){
+       if(board[i - 1][j - 1].equals(marker) && j - 2 > 0 && i - 2 > 0){
+        if(board[i - 2][j - 2].equals(marker) && j - 3 > 0 && i - 3 > 0){
+         if(board[i - 3][j - 3].equals(marker) && j - 4 > 0 && i - 4 > 0){
+          print(board);
+          System.out.println("Player " + player + " wins!");
+          win = true;
+         }
+        }
+       }
+      }
+     }
+    }
+    //going down and to the right
+    for(int i = 0; i < 6; i++){
+     for(int j = 0; j < 7; j++){
+      if(board[i][j].equals(marker) && j + 1 < 7 && i - 1 > 0){
+       if(board[i - 1][j + 1].equals(marker) && j + 2 < 7 && i - 2 > 0){
+        if(board[i - 2][j + 2].equals(marker) && j + 3 < 7 && i - 3 > 0){
+         if(board[i - 3][j + 3].equals(marker) && j + 4 < 7 && i - 4 > 0){
+          print(board);
+          System.out.println("Player " + player + " wins!");
+          win = true;
+         }
+        }
+       }
+      }
+     }
+    }
+    //going up and to the right
+    for(int i = 0; i < 6; i++){
+     for(int j = 0; j < 7; j++){
+      if(board[i][j].equals(marker) && j + 1 < 7 && i + 1 < 6){
+       if(board[i + 1][j + 1].equals(marker) && j + 2 < 7 && i + 2 < 6){
+        if(board[i + 2][j + 2].equals(marker) && j + 3 < 7 && i + 3 < 6){
+         if(board[i + 3][j + 3].equals(marker) && j + 4 < 7 && i + 4 < 6){
+          print(board);
+          System.out.println("Player " + player + " wins!");
+          win = true;
+         }
+        }
+       }
+      }
+     }
+    }
+    //going up and to the left
+    for(int i = 0; i < 6; i++){
+     for(int j = 0; j < 7; j++){
+      if(board[i][j].equals(marker) && j - 1 > 0 && i + 1 < 6){
+       if(board[i + 1][j - 1].equals(marker) && j - 2 > 0 && i + 2 < 6){
+        if(board[i + 2][j - 2].equals(marker) && j - 3 > 0 && i + 3 < 6){
+         if(board[i + 3][j - 3].equals(marker) && j - 4 > 0 && i + 4 < 6){
+          print(board);
+          System.out.println("Player " + player + " wins!");
+          win = true;
+         }
+        }
+       }
+      }
+     }
+    }
+
+
+
+    //board fills up with no victor case
+    if(board[0][0] != "_" && board[0][1] != "_" && board[0][2] != "_" && board[0][3] != "_" && board[0][4] != "_" && board[0][5] != "_" && board[0][6] != "_") {
+     print(board);
+     System.out.println("Draw!");
+     win = true;
+    }
+   }
+   System.out.println("Would you like to play again(yes/no)?");
+   if(bub.nextLine().equals("yes"))
+    cont = true;
+  }
+ }
+
+ public static void print(String[][] x){
+  for(int i = 0; i < 6; i++){
+   for(int j = 0; j < 7; j++){
+    System.out.print(x[i][j]);
+   }
+   System.out.println();
+  }
+ }
+}
+/*import java.util.*;
 public class Connect4 
 {
   public static void run() 
@@ -149,3 +318,5 @@ public class Connect4
   return false;
  }
 }
+
+ */

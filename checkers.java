@@ -52,6 +52,14 @@ public class checkers {
         boolean continueOn = true;
         while(continueOn) { //one cycle for every turn: one for player 1, one for player 2
             printBoard(board);
+            if(count > 0) {
+                System.out.println("Do you want to keep playing?(yes/no)");
+                String answer = input.nextLine();
+                if (answer.equals("no")) {
+                    System.out.println("ewww productivity");
+                    break;
+                }
+            }
 
             //change based on which player is going, count increases by one every turn
             int posNeg = 1;
@@ -168,6 +176,9 @@ public class checkers {
                 }
             }
 
+
+
+
             if(player1Win && player2Win){
                 System.out.println("It's a tie!");
                 continueOn = false;
@@ -181,6 +192,7 @@ public class checkers {
                 continueOn = false;
             }
             count++;
+
         }
     }
 

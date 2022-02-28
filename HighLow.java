@@ -7,7 +7,8 @@ public class HighLow
   ArrayList <cards> deck = new ArrayList<cards>(); 
   
   public HighLow()
-  {deck.add(new cards(14, "ace"));
+  {
+    deck.add(new cards(14, "ace"));
     deck.add(new cards(14, "ace"));
     deck.add(new cards(14, "ace"));
     deck.add(new cards(14, "ace"));
@@ -87,7 +88,7 @@ public class HighLow
     }
   }
   
-  public int draw(player activeplayer)
+  public int draw(player1 activeplayer)
   {
     String cardtype = deck.get(0).getType();
     int cardnumber = deck.get(0).getNumber();
@@ -100,7 +101,7 @@ public class HighLow
   
   
   
-  public int computerdraw(player activeplayer)
+  public int computerdraw(player1 activeplayer)
   {
     String cardtype = deck.get(0).getType();
     int cardnumber = deck.get(0).getNumber();
@@ -114,8 +115,8 @@ public class HighLow
   {
     String yn = "yes";
     int wager = 0;
-    player activeplayer = new player (50);
-    player computer = new player (50000);
+    player1 activeplayer = new player1 (50);
+    player1 computer = new player1 (50000);
     boolean valid_wager=false;
     HighLow game = new HighLow();
     game.shuffle();
@@ -213,3 +214,5 @@ public class HighLow
     }
   }
 }
+
+

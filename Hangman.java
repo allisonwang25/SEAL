@@ -6,114 +6,117 @@ public class Hangman {
 
         //String[] words = {"ink", "aid", "bad", "cat", "dog", "eat", "fig", "god", "hat", "jug", "let", "may",
                           //"net", "our", "pet", "rub", "sit", "tag", "urn", "van", "war", "yes", "zip"};
-        String[] words = {"seals", "jazz", "kayak", "yacht", "twelfth", "samoyed", "ASMR", "random", "circle",
+        String[] words = {"seals", "jazz", "kayak", "yacht", "twelfth", "samoyed", "random", "circle",
                           "quadrilateral", "triangle", "answer", "question", "public", "flute", "piano", "benches",
                           "birch tree", "rosemary", "the great gatsby"};
 
         Scanner in = new Scanner(System.in);
+        boolean game = true;
+        while(game) {
+            int random = (int) (Math.random() * words.length);
+            String word = words[random];
 
-        int random = (int)(Math.random() * words.length);
-        String word = words[random];
+            int wrong = 0;
+            printMan(wrong);
 
-        int wrong = 0;
-        printMan(wrong);
-
-        for(int i = 0; i < word.length(); i++) {
-            if(word.substring(i, i+1).equals(" "))
-                System.out.print("  ");
-            else
-                System.out.print("_ ");
-        }
-        System.out.println();
-
-        ArrayList<String> previousGuesses = new ArrayList<String>();
-        ArrayList<String> rights = new ArrayList<String>();
-        ArrayList<String> wrongs = new ArrayList<String>();
-        boolean play = true;
-        while(play){
-            String finalWord = "";
-            boolean repeat1 = true;
-            String guess = "";
-            while(repeat1) {
-                System.out.println("Guess a letter! Please guess lowercase letters!");
-                guess = in.nextLine();
-                repeat1 = repeat(guess, previousGuesses);
-                if(repeat1)
-                    System.out.println("You've already guessed that! Choose another letter!");
+            for (int i = 0; i < word.length(); i++) {
+                if (word.substring(i, i + 1).equals(" "))
+                    System.out.print("  ");
+                else
+                    System.out.print("_ ");
             }
+            System.out.println();
 
-            previousGuesses.add(guess);
+            ArrayList<String> previousGuesses = new ArrayList<String>();
+            ArrayList<String> rights = new ArrayList<String>();
+            ArrayList<String> wrongs = new ArrayList<String>();
+            boolean play = true;
+            while (play) {
+                String finalWord = "";
+                boolean repeat1 = true;
+                String guess = "";
+                while (repeat1) {
+                    System.out.println("Guess a letter! Please guess lowercase letters!");
+                    guess = in.nextLine();
+                    repeat1 = repeat(guess, previousGuesses);
+                    if (repeat1)
+                        System.out.println("You've already guessed that! Choose another letter!");
+                }
 
-            boolean found = false;
-            for(int i = 0; i < word.length(); i++){
-                if(word.substring(i, i+1).equals(guess))
-                    found = true;
-            }
+                previousGuesses.add(guess);
 
-            if(!found) {
-                wrong++;
-                System.out.println("This letter wasn't found in the word!");
-                wrongs.add(guess);
-                printMan(wrong);
-                for(int i = 0; i < word.length(); i++){
-                    boolean found1 = false;
-                    for(int j = 0; j < rights.size(); j++) {
-                        if (word.substring(i, i + 1).equals(rights.get(j))) {
-                            System.out.print(rights.get(j) + " ");
-                            found1 = true;
+                boolean found = false;
+                for (int i = 0; i < word.length(); i++) {
+                    if (word.substring(i, i + 1).equals(guess))
+                        found = true;
+                }
+
+                if (!found) {
+                    wrong++;
+                    System.out.println("This letter wasn't found in the word!");
+                    wrongs.add(guess);
+                    printMan(wrong);
+                    for (int i = 0; i < word.length(); i++) {
+                        boolean found1 = false;
+                        for (int j = 0; j < rights.size(); j++) {
+                            if (word.substring(i, i + 1).equals(rights.get(j))) {
+                                System.out.print(rights.get(j) + " ");
+                                found1 = true;
+                            }
                         }
+                        if (word.substring(i, i + 1).equals(" "))
+                            System.out.print("  ");
+                        else if (!found1)
+                            System.out.print("_ ");
                     }
-                    if(word.substring(i, i + 1).equals(" "))
-                        System.out.print("  ");
-                    else if(!found1)
-                        System.out.print("_ ");
-                }
-                System.out.println();
-                System.out.println("Wrong Answers:");
-                for(int i = 0; i < wrongs.size(); i++)
-                    System.out.print(wrongs.get(i) + " ");
-                System.out.println();
-            }
-            else if(found){
-                rights.add(guess);
-                printMan(wrong);
-                for(int i = 0; i < word.length(); i++){
-                    boolean found1 = false;
-                    for(int j = 0; j < rights.size(); j++) {
-                        if (word.substring(i, i + 1).equals(rights.get(j))) {
-                            System.out.print(rights.get(j) + " ");
-                            finalWord += rights.get(j);
-                            found1 = true;
+                    System.out.println();
+                    System.out.println("Wrong Answers:");
+                    for (int i = 0; i < wrongs.size(); i++)
+                        System.out.print(wrongs.get(i) + " ");
+                    System.out.println();
+                } else if (found) {
+                    rights.add(guess);
+                    printMan(wrong);
+                    for (int i = 0; i < word.length(); i++) {
+                        boolean found1 = false;
+                        for (int j = 0; j < rights.size(); j++) {
+                            if (word.substring(i, i + 1).equals(rights.get(j))) {
+                                System.out.print(rights.get(j) + " ");
+                                finalWord += rights.get(j);
+                                found1 = true;
+                            }
                         }
+                        if (word.substring(i, i + 1).equals(" ")) {
+                            System.out.print("  ");
+                            finalWord += " ";
+                        } else if (!found1)
+                            System.out.print("_ ");
+
                     }
-                    if(word.substring(i, i + 1).equals(" ")) {
-                        System.out.print("  ");
-                        finalWord += " ";
+                    System.out.println();
+                    System.out.println("Wrong Answers:");
+                    for (int i = 0; i < wrongs.size(); i++) {
+                        System.out.print(wrongs.get(i) + " ");
                     }
-                    else if(!found1)
-                        System.out.print("_ ");
-
+                    System.out.println();
                 }
-                System.out.println();
-                System.out.println("Wrong Answers:");
-                for(int i = 0; i < wrongs.size(); i++){
-                    System.out.print(wrongs.get(i) + " ");
+
+
+                boolean fullWord = true;
+                if (finalWord.equals(word)) {
+                    play = false;
+                    System.out.println("You win! Congratulations!");
+                } else if (wrong == 6) {
+                    play = false;
+                    System.out.println("The word was " + word + "!");
                 }
-                System.out.println();
             }
-
-
-            boolean fullWord = true;
-            if(finalWord.equals(word)) {
-                play = false;
-                System.out.println("You win! Congratulations!");
+            System.out.println("Do you want to play again?(yes/no)");
+            String answer = in.nextLine();
+            if(answer.equals("no")){
+                System.out.println("awww see you next time! Don't get too much work done :((");
+                game = false;
             }
-            else if(wrong == 6) {
-                play = false;
-                System.out.println("The word was " + word + "!");
-            }
-
-
         }
     }
     public static boolean repeat(String guess, ArrayList<String> previousGuesses){

@@ -13,7 +13,7 @@ public class typingTest{
                 "Shut up about the sun! Shut up about the sun!",
                 "In the '60s, I made love to many, many women, often outdoors in the rain. It's possible a man could have slipped in there. There would be no way of knowing."};
         String[] bojackQuotes = {"There are some people you can't save. 'Cause those people will thrash and struggle and try to take you down with them",
-                "BoJack, when you get sad, your un straight ahead and you keep running forward, no matter what... Don't you ever stop running and don't you ever look behind you... All that exists is what's ahead.",
+                "BoJack, when you get sad, you run straight ahead and you keep running forward, no matter what... Don't you ever stop running and don't you ever look behind you... All that exists is what's ahead.",
                 "Sometimes life's a b**** and then you keep living.",
                 "Same things that always happens. You didn't know me and then you feel in love with me. And, now you know me.",
                 "It gets easier. Everyday, it gets a little easier. But you gotta do it everyday — that's the hard part. But it does get easier.",
@@ -55,7 +55,7 @@ public class typingTest{
             String chosen1 = chosen[rand];
             int wordCount = 1;
             for (int i = 0; i < chosen1.length(); i++) {
-                if (chosen1.substring(i, i + 1).equals(" ")) {
+                if (chosen1.charAt(i) == ' ') {
                     wordCount++;
                 }
             }

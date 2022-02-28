@@ -2,7 +2,7 @@ import java.util.*;
 public class blackJack{
     public static void run(){
         Scanner in = new Scanner(System.in);
-        System.out.println("Welcome to Allison's Blackjack Table! What's your name?");
+        System.out.println("Welcome to iCrastinate Pro's Blackjack Table! What's your name?");
         String name = in.nextLine();
         ArrayList<Card> playerHand = null;
         ArrayList<Card> dealerHand = null;
@@ -153,10 +153,11 @@ public class blackJack{
             }
             else {
                 System.out.println("Would you like to continue(y/n)?");
-                if (in.nextLine().equals("y")) {
+                String answer = in.nextLine();
+                if (answer.equals("y")) {
                     continueOn = true;
                     valid = true;
-                } else if (in.nextLine().equals("n")) {
+                } else if (answer.equals("n")) {
                     continueOn = false;
                     System.out.println("Thanks for playing! Your final balance was " + player.getBankroll());
                 }
