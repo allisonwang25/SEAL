@@ -1,7 +1,7 @@
 import java.util.*;
 public class GuessTheWord {
 //have a peer substitute a 6 letter as the seceret word; string word 
-    public static void main(String[] args) 
+    public static void run() 
     {
       Scanner pencil = new Scanner(System.in);
       
