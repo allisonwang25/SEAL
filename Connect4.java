@@ -1,7 +1,7 @@
 import java.util.*;
 public class Connect4 
 {
-  public static void main(String[] args) 
+  public static void run() 
   {
    Scanner pencil = new Scanner(System.in);
    char[][] cfgrid = new char[6][7];
