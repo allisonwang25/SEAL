@@ -1,5 +1,3 @@
-package slapJack;
-
 import java.util.*;
 public class slapJack {
     public static void run(){
@@ -8,7 +6,6 @@ public class slapJack {
             Scanner input = new Scanner(System.in);
             System.out.println("Welcome to Slap Jack!");
             System.out.println("This is a two player game, make sure you have a partner! Press enter to place a card! \n");
-
             System.out.println("Player 1, which key will be your slap? Choose any number, letter, or special character!");
             String p1 = input.nextLine();
             System.out.println("Player 2, which key will be your slap? Choose any number, letter, or special character!");

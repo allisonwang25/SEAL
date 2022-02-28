@@ -1,5 +1,3 @@
-package slapJack;
-
 public class Card {
     private String name;
     private String suit;
